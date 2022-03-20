@@ -1,11 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
+  <Import Project="$(SolutionDir)Starmo0d\Shared\common.targets" />
+
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
   <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
-    <Exec Command="if not exist &quot;$(SolutionDir)Starmo0d\&quot; (&#xD;&#xA;  CD $(SolutionDir)\&#xD;&#xA;  git submodule update --init --recursive --remote&#xD;&#xA;) else (&#xD;&#xA;  CD $(SolutionDir)Starmo0d\&#xD;&#xA;  git remote show origin&#xD;&#xA;  git checkout master&#xD;&#xA;)" />
+    <Exec Command="if not exist &quot;$(SolutionDir)Starmo0d\&quot; (&#xD;&#xA;    mkdir &quot;$(SolutionDir)\Starmo0d&quot;&#xD;&#xA;)&#xD;&#xA;&#xD;&#xA;for /F %25%25i in ('dir /b &quot;$(SolutionDir)Starmo0d\*.*&quot;') do (&#xD;&#xA;    cd $(SolutionDir)Starmo0d\&#xD;&#xA;    git remote show origin&#xD;&#xA;    git checkout master&#xD;&#xA;    goto :EOF&#xD;&#xA;)&#xD;&#xA;&#xD;&#xA;cd $(SolutionDir)\&#xD;&#xA;git submodule update --init --recursive --remote" />
   </Target>
 
 </Project>
