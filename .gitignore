@@ -6,6 +6,9 @@
 # Starmo0d submodule
 Starmo0d/
 
+# releases
+_releases
+
 # User-specific files
 *.rsuser
 *.suo

@@ -1,0 +1,18 @@
+﻿{
+  "Name": "Starmo0d Core",
+  "Author": "no0dl",
+  "Version": "0.0.1",
+  "Description": "Starmo0d Core Library",
+  "UniqueID": "Starmo0d.Core",
+  "EntryDll": "Starmo0d.Core.dll",
+  "MinimumApiVersion": "3.13.2",
+  "UpdateKeys": [ "GitHub:no0dlz/Starmo0d.Core" ]
+}
+
+
+//"Dependencies": [
+//    {
+//      "UniqueID": "DaLion.AwesomeProfessions",
+//      "IsRequired": false
+//    }
+//  ]

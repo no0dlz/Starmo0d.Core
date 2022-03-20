@@ -6,8 +6,16 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="i18n\default.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="i18n\" />
+  </ItemGroup>
+
   <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
-    <Exec Command="if not exist &quot;$(SolutionDir)Starmo0d\&quot; (&#xD;&#xA;    mkdir &quot;$(SolutionDir)\Starmo0d&quot;&#xD;&#xA;)&#xD;&#xA;&#xD;&#xA;for /F %25%25i in ('dir /b &quot;$(SolutionDir)Starmo0d\*.*&quot;') do (&#xD;&#xA;    cd $(SolutionDir)Starmo0d\&#xD;&#xA;    git remote show origin&#xD;&#xA;    git checkout master&#xD;&#xA;    goto :EOF&#xD;&#xA;)&#xD;&#xA;&#xD;&#xA;cd $(SolutionDir)\&#xD;&#xA;git submodule update --init --recursive --remote" />
+    <Exec Command="if not exist &quot;$(SolutionDir)Starmo0d\&quot; (&#xD;&#xA;    mkdir &quot;$(SolutionDir)\Starmo0d&quot;&#xD;&#xA;)&#xD;&#xA;&#xD;&#xA;for /F %25%25i in ('dir /b &quot;$(SolutionDir)Starmo0d\*.*&quot;') do (&#xD;&#xA;    cd $(SolutionDir)Starmo0d\&#xD;&#xA;    git remote show origin&#xD;&#xA;    git checkout master&#xD;&#xA;    git pull&#xD;&#xA;    goto :EOF&#xD;&#xA;)&#xD;&#xA;&#xD;&#xA;cd $(SolutionDir)\&#xD;&#xA;git submodule update --init --recursive --remote" />
   </Target>
 
 </Project>
