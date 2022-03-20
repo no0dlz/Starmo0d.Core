@@ -1,7 +1,11 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
+
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+    <Exec Command="if not exist &quot;$(SolutionDir)Starmo0d\&quot; (&#xD;&#xA;  CD $(SolutionDir)\&#xD;&#xA;  git submodule update --init --recursive --remote&#xD;&#xA;) else (&#xD;&#xA;  CD $(SolutionDir)Starmo0d\&#xD;&#xA;  git remote show origin&#xD;&#xA;  git checkout master&#xD;&#xA;)" />
+  </Target>
 
 </Project>
