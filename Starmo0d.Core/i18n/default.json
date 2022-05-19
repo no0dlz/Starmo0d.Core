@@ -1,4 +1,4 @@
 ﻿{
-  "common.starting": "Starting Starmo0d Core Library...",
-  "common.started": "...Starmo0d Core Library successfully started!"
+  "general.starting": "Starting up...",
+  "general.started": "Start successfull."
 }
